@@ -6,7 +6,7 @@
 #    By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/20 06:04:14 by aakourya          #+#    #+#              #
-#    Updated: 2025/12/20 10:24:07 by aakourya         ###   ########.fr        #
+#    Updated: 2025/12/24 11:54:25 by aakourya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ AR     = ar -rcs
 RM     = rm -f
 
 NAME = libpushswap.a
-SRC  = 
+SRC  = operations/push.c operations/swap.c operations/rotate.c operations/rev_rotate.c
 OBJ  = $(SRC:.c=.o)
 all: $(NAME)
 
