@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 06:21:29 by aakourya          #+#    #+#             */
-/*   Updated: 2025/12/28 17:09:18 by aakourya         ###   ########.fr       */
+/*   Updated: 2025/12/29 09:40:38 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ int		ft_isdigit(int c);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstnew(int content);
 void	ft_lstclear(t_list **lst);
+int ft_lstsize(t_list *lst);
+
+/* SORTING */
+void sort_stack(t_list **stack_a, t_list **stack_b, int size);
 
 /* STACK INIT */
 t_list	*create_stack(int argc, char **argv);

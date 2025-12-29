@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 15:52:18 by aakourya          #+#    #+#             */
-/*   Updated: 2025/12/28 17:00:57 by aakourya         ###   ########.fr       */
+/*   Updated: 2025/12/29 08:30:58 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_list	*handle_error(char **split_args, int argc, int i)
 }
 
 int	check_duplicate(t_list *stack, int num)
-{
+{   
 	while (stack)
 	{
 		if (stack->content == num)
@@ -53,7 +53,7 @@ int	is_valid_number(char *str)
 	return (1);
 }
 
-static int	add_number_to_stack(t_list **stack_a, char *str, int argc, int i)
+static int	add_number_to_stack(t_list **stack_a, char *str)
 {
 	int		num;
 	t_list	*node;
@@ -93,7 +93,7 @@ t_list	*create_stack(int argc, char **argv)
 	i = 0;
 	while (split_args[i])
 	{
-		if (!add_number_to_stack(&stack_a, split_args[i], argc, i))
+		if (!add_number_to_stack(&stack_a, split_args[i]))
 			return (handle_error(split_args, argc, i));
 		i++;
 	}
