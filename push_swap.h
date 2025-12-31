@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 06:21:29 by aakourya          #+#    #+#             */
-/*   Updated: 2025/12/29 09:40:38 by aakourya         ###   ########.fr       */
+/*   Updated: 2025/12/31 08:37:18 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,16 @@ int ft_lstsize(t_list *lst);
 
 /* SORTING */
 void sort_stack(t_list **stack_a, t_list **stack_b, int size);
+void sort_small_stack(t_list **stack_a, t_list **stack_b, int size);
+// void sort_medium_stack(t_list **stack_a, t_list **stack_b, int size);
+// void sort_large_stack(t_list **stack_a, t_list **stack_b, int size);
 
-/* STACK INIT */
+/* STACK */
 t_list	*create_stack(int argc, char **argv);
+t_list *handle_error(char **split_args, int argc, int i);
+int check_duplicate(t_list *stack, int num);
+int is_valid_number(char *str);
+int add_number_to_stack(t_list **stack_a, char *str);
+int is_sorted(t_list *stack);
 
 #endif

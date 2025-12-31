@@ -6,7 +6,7 @@
 #    By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/20 06:04:14 by aakourya          #+#    #+#              #
-#    Updated: 2025/12/29 10:06:20 by aakourya         ###   ########.fr        #
+#    Updated: 2025/12/31 09:07:32 by aakourya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME = libpushswap.a
 SRC  = 	operations/push.c operations/swap.c operations/rotate.c operations/rev_rotate.c \
 		utils/ft_atoi.c utils/ft_split.c utils/ft_substr.c utils/helpers.c \
 		utils/ft_lstadd_back.c utils/ft_lstnew.c utils/ft_lstclear.c \
-		sort/sort.c init_stack.c main.c
+		sort/sort.c sort/sort_small.c stack/init_stack.c stack/stack_utils.c main.c
 OBJ  = $(SRC:.c=.o)
 all: $(NAME)
 
