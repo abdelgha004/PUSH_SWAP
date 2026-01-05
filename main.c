@@ -6,11 +6,13 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 08:31:20 by aakourya          #+#    #+#             */
-/*   Updated: 2025/12/31 09:08:30 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/05 09:08:46 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// to remove after testing
 #include <stdio.h>
 
 // to remove after testing
@@ -32,7 +34,8 @@ int main(int argc, char **argv){
         return (0);
     stack_a = create_stack(argc, argv);
     if (!stack_a)
-        return (1); 
+        return (1);
+    assign_index(stack_a);
     stack_b = NULL;
     size = ft_lstsize(stack_a);
     if(size > 1)

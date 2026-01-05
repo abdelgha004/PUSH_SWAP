@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/28 15:52:18 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/04 12:10:48 by aakourya         ###   ########.fr       */
+/*   Created: 2025/12/28 10:02:24 by aakourya          #+#    #+#             */
+/*   Updated: 2026/01/04 11:33:25 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_list	*create_stack(int argc, char **argv)
+long	ft_atol(const char *nptr)
 {
-	char	**numbers;
-	t_list	*stack_a;
-	int		i;
-	int		j;
+	long	result;
+	int	i;
+	int	sign;
 
-	stack_a = NULL;
-	i = 1;
-	while (i < argc)
+	result = 0;
+	i = 0;
+	sign = 1;
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	if (nptr[i] == '-')
 	{
-		numbers = ft_split(argv[i], ' ');
-		if (!numbers)
-			return (ft_lstclear(&stack_a), NULL);
-		j = 0;
-		while (numbers[j])
-		{
-			if (!add_number_to_stack(&stack_a, numbers[j]))
-				return (handle_error(numbers, -1), ft_lstclear(&stack_a),NULL);
-			j++;
-		}
-		free_all(numbers, -1);
+		sign = -1;
 		i++;
 	}
-	return (stack_a);
+	else if (nptr[i] == '+')
+		i++;
+	while (ft_isdigit(nptr[i]))
+	{
+		result = result * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (result * sign);
 }

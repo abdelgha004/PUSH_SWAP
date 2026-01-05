@@ -6,18 +6,17 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 09:12:04 by aakourya          #+#    #+#             */
-/*   Updated: 2025/12/30 10:26:18 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/04 12:08:34 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_list	*handle_error(char **split_args, int argc, int i)
+void	handle_error(char **split_args, int i)
 {
 	write(2, "Error\n", 6);
-	if (argc == 2)
-		free_all(split_args, i);
-	return (NULL);
+    if(split_args)
+        free_all(split_args, i);
 }
 
 int	check_duplicate(t_list *stack, int num)
@@ -47,7 +46,7 @@ int	is_valid_number(char *str)
 			return (0);
 		i++;
 	}
-	num = ft_atoi(str);
+	num = ft_atol(str);
 	if (num < -2147483648 || num > 2147483647)
 		return (0);
 	return (1);
@@ -60,23 +59,21 @@ int	add_number_to_stack(t_list **stack_a, char *str)
 
 	if (!is_valid_number(str))
 		return (0);
-	num = ft_atoi(str);
+	num = (int)ft_atol(str);
 	if (*stack_a && check_duplicate(*stack_a, num))
 		return (0);
 	node = ft_lstnew(num);
 	if (!node)
-	{
-		ft_lstclear(stack_a);
 		return (0);
-	}
 	ft_lstadd_back(stack_a, node);
 	return (1);
 }
 
 int  is_sorted(t_list *stack)
 {
-    while(stack->next){
-        if(stack->content > stack->next->content)
+    while(stack && stack->next)
+    {
+        if(stack->index > stack->next->index)
             return (0);
         stack = stack->next;
     }

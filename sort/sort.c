@@ -19,9 +19,9 @@
         if(size <= 5){
             sort_small_stack(stack_a, stack_b, size);
         }
-        /*else if(size <= 100){
+        else if(size <= 100){
              sort_medium_stack(stack_a, stack_b, size);
-        }else{
+        }/*else{
             sort_large_stack(stack_a, stack_b, size);
         }
         *stack_b = NULL;

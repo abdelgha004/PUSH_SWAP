@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 09:45:47 by aakourya          #+#    #+#             */
-/*   Updated: 2025/12/28 16:59:22 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/04 12:05:24 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	**ft_split(char const *s, char c)
 	{
 		arr[i] = ft_substr(s, start, end - start);
 		if (!arr[i])
-			return (free_all(arr, i), NULL);
+			return (free_all(arr, -1), NULL);
 		start = end;
 		i++;
 	}
