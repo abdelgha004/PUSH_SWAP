@@ -39,25 +39,25 @@ size_t	ft_strlen(const char *s)
 
 void	free_all(char **arr, int n)
 {
-    int i;
-    
-    if (!arr)
-        return ;
-    i = 0;
-    if(n == -1)
-    {
-        while(arr[i])
-        {
-            free(arr[i]);
-            i++;
-        }
-    }
-    else 
-    {
-	    while (n > 0)
-		    free(arr[--n]);
-    }
-    free(arr);
+	int	i;
+
+	if (!arr)
+		return ;
+	i = 0;
+	if (n == -1)
+	{
+		while (arr[i])
+		{
+			free(arr[i]);
+			i++;
+		}
+	}
+	else
+	{
+		while (n > 0)
+			free(arr[--n]);
+	}
+	free(arr);
 }
 
 int	ft_isdigit(int c)

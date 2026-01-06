@@ -15,12 +15,12 @@
 void	handle_error(char **split_args, int i)
 {
 	write(2, "Error\n", 6);
-    if(split_args)
-        free_all(split_args, i);
+	if (split_args)
+		free_all(split_args, i);
 }
 
 int	check_duplicate(t_list *stack, int num)
-{   
+{
 	while (stack)
 	{
 		if (stack->content == num)
@@ -69,13 +69,13 @@ int	add_number_to_stack(t_list **stack_a, char *str)
 	return (1);
 }
 
-int  is_sorted(t_list *stack)
+int	is_sorted(t_list *stack)
 {
-    while(stack && stack->next)
-    {
-        if(stack->index > stack->next->index)
-            return (0);
-        stack = stack->next;
-    }
-    return (1);
+	while (stack && stack->next)
+	{
+		if (stack->index > stack->next->index)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

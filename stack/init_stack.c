@@ -30,7 +30,7 @@ t_list	*create_stack(int argc, char **argv)
 		while (numbers[j])
 		{
 			if (!add_number_to_stack(&stack_a, numbers[j]))
-				return (handle_error(numbers, -1), ft_lstclear(&stack_a),NULL);
+				return (handle_error(numbers, -1), ft_lstclear(&stack_a), NULL);
 			j++;
 		}
 		free_all(numbers, -1);
