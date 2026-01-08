@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 09:23:57 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/06 11:28:56 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:58:55 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	sort_stack(t_list **stack_a, t_list **stack_b, int size)
 	    sort_small_stack(stack_a, stack_b, size);
 	else if (size <= 100)
 		sort_medium_stack(stack_a, stack_b, size);
-	// else 
-	// 	sort_large_stack(stack_a, stack_b, size);
+	else 
+		sort_large_stack(stack_a, stack_b, size);
+    
 }

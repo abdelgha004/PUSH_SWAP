@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 08:31:20 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/06 11:27:52 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/07 08:59:49 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	main(int argc, char **argv)
 	//     printf("Stack A is sorted\n");
 	// else
 	//     printf("Stack A is not sorted\n");
-	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
 	return (0);
 }
