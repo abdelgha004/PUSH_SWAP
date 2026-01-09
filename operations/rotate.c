@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 09:36:34 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/05 09:52:46 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/09 16:12:32 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,25 @@ void	rotate_stack(t_list **stack)
 	last->next = first;
 }
 
-void	rotate_a(t_list **stack_a)
+void	rotate_a(t_list **stack_a, int print)
 {
 	if (!stack_a || !*stack_a || !(*stack_a)->next)
 		return ;
 	rotate_stack(stack_a);
-	write(1, "ra\n", 3);
+	if (print)
+		write(1, "ra\n", 3);
 }
 
-void	rotate_b(t_list **stack_b)
+void	rotate_b(t_list **stack_b, int print)
 {
 	if (!stack_b || !*stack_b || !(*stack_b)->next)
 		return ;
 	rotate_stack(stack_b);
-	write(1, "rb\n", 3);
+	if (print)
+		write(1, "rb\n", 3);
 }
 
-void	rotate_a_and_b(t_list **stack_a, t_list **stack_b)
+void	rotate_a_and_b(t_list **stack_a, t_list **stack_b, int print)
 {
 	int	rotate;
 
@@ -57,6 +59,6 @@ void	rotate_a_and_b(t_list **stack_a, t_list **stack_b)
 		rotate_stack(stack_b);
 		rotate = 1;
 	}
-	if (rotate)
+	if (rotate && print)
 		write(1, "rr\n", 3);
 }

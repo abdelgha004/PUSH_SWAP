@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 09:36:52 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/05 09:52:37 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/09 16:11:16 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,25 @@ void	reverse_rotate_stack(t_list **stack)
 	*stack = last;
 }
 
-void	reverse_rotate_a(t_list **stack_a)
+void	reverse_rotate_a(t_list **stack_a, int print)
 {
 	if (!stack_a || !*stack_a || !(*stack_a)->next)
 		return ;
 	reverse_rotate_stack(stack_a);
-	write(1, "rra\n", 4);
+	if (print)
+		write(1, "rra\n", 4);
 }
 
-void	reverse_rotate_b(t_list **stack_b)
+void	reverse_rotate_b(t_list **stack_b, int print)
 {
 	if (!stack_b || !*stack_b || !(*stack_b)->next)
 		return ;
 	reverse_rotate_stack(stack_b);
-	write(1, "rrb\n", 4);
+	if (print)
+		write(1, "rrb\n", 4);
 }
 
-void	reverse_rotate_a_and_b(t_list **stack_a, t_list **stack_b)
+void	reverse_rotate_a_and_b(t_list **stack_a, t_list **stack_b, int print)
 {
 	int	rotate;
 
@@ -59,6 +61,6 @@ void	reverse_rotate_a_and_b(t_list **stack_a, t_list **stack_b)
 		reverse_rotate_stack(stack_b);
 		rotate = 1;
 	}
-	if (rotate)
+	if (rotate && print)
 		write(1, "rrr\n", 4);
 }

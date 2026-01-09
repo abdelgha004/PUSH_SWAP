@@ -1,33 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 08:31:20 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/09 06:36:29 by aakourya         ###   ########.fr       */
+/*   Created: 2026/01/09 06:31:57 by aakourya          #+#    #+#             */
+/*   Updated: 2026/01/09 11:28:03 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
+#include "get_next_line/get_next_line.h"
+
+static int	run_checker(t_list **stack_a, t_list **stack_b)
+{
+	char	*line;
+
+	line = get_next_line(0);
+	while (line)
+	{
+		if (!execute_instruction(line, stack_a, stack_b))
+		{
+			write(2, "Error\n", 6);
+			free(line);
+			return (0);
+		}
+		free(line);
+		line = get_next_line(0);
+	}
+	return (1);
+}
 
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	int		size;
+	int		result;
 
 	if (argc < 2)
 		return (0);
 	stack_a = create_stack(argc, argv);
 	if (!stack_a)
 		return (1);
-	assign_index(stack_a);
 	stack_b = NULL;
-	size = ft_lstsize(stack_a);
-	if (size > 1)
-		sort_stack(&stack_a, &stack_b, size);
+	result = run_checker(&stack_a, &stack_b);
+	if (!result)
+	{
+		ft_lstclear(&stack_a);
+		ft_lstclear(&stack_b);
+		return (1);
+	}
+	if (is_sorted(stack_a) && !stack_b)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
 	return (0);

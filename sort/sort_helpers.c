@@ -6,26 +6,27 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 18:15:01 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/08 07:17:36 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/09 16:19:45 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int get_pos_in_chunk(t_list *stack, int chunk_limit)
+int	get_pos_in_chunk(t_list *stack, int chunk_limit)
 {
-    int pos;
+	int	pos;
 
-    pos = 0;
-    while (stack)
-    {
-        if (stack->index < chunk_limit)
-            return pos;
-        stack = stack->next;
-        pos++;
-    }
-    return -1;
+	pos = 0;
+	while (stack)
+	{
+		if (stack->index < chunk_limit)
+			return (pos);
+		pos++;
+		stack = stack->next;
+	}
+	return (-1);
 }
+
 int	get_position(t_list *stack, int index)
 {
 	int	position;
@@ -52,15 +53,15 @@ void	push_back_to_a(t_list **stack_a, t_list **stack_b, int size)
 		position = get_position(*stack_b, max_index);
 		if ((*stack_b)->index == max_index)
 		{
-			push_a(stack_a, stack_b);
+			push_a(stack_a, stack_b, 1);
 			size--;
 		}
-        else if ((*stack_b)->next && (*stack_b)->next->index == max_index)
-            swap_b(stack_b);
+		else if ((*stack_b)->next && (*stack_b)->next->index == max_index)
+			swap_b(stack_b, 1);
 		else if (position <= (size / 2))
-            rotate_b(stack_b);
+			rotate_b(stack_b, 1);
 		else
-            reverse_rotate_b(stack_b);
+			reverse_rotate_b(stack_b, 1);
 	}
 }
 

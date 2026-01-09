@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 09:29:20 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/07 08:49:58 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/09 16:16:05 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@ static void	sort_tree(t_list **stack_a)
 	second = (*stack_a)->next->index;
 	third = (*stack_a)->next->next->index;
 	if (first > second && second < third && first < third)
-		swap_a(stack_a);
+		swap_a(stack_a, 1);
 	else if (first > second && second < third && first > third)
-		rotate_a(stack_a);
+		rotate_a(stack_a, 1);
 	else if (first < second && second > third && first > third)
-		reverse_rotate_a(stack_a);
+		reverse_rotate_a(stack_a, 1);
 	else if (first < second && second > third && first < third)
 	{
-		swap_a(stack_a);
-		rotate_a(stack_a);
+		swap_a(stack_a, 1);
+		rotate_a(stack_a, 1);
 	}
 	else if (first > second && second > third && first > third)
 	{
-		swap_a(stack_a);
-		reverse_rotate_a(stack_a);
+		swap_a(stack_a, 1);
+		reverse_rotate_a(stack_a, 1);
 	}
 }
 
@@ -52,17 +52,17 @@ static void	sort_four_five(t_list **stack_a, t_list **stack_b, int size)
 		position = get_position(*stack_a, index);
 		if ((*stack_a)->index == index)
 		{
-			push_b(stack_b, stack_a);
+			push_b(stack_b, stack_a, 1);
 			index++;
 		}
 		else if (position >= (size / 2))
-			reverse_rotate_a(stack_a);
+			reverse_rotate_a(stack_a, 1);
 		else
-			rotate_a(stack_a);
+			rotate_a(stack_a, 1);
 	}
 	sort_tree(stack_a);
 	while (*stack_b)
-		push_a(stack_a, stack_b);
+		push_a(stack_a, stack_b, 1);
 }
 
 void	sort_small_stack(t_list **stack_a, t_list **stack_b, int size)
@@ -70,7 +70,7 @@ void	sort_small_stack(t_list **stack_a, t_list **stack_b, int size)
 	if (size == 2)
 	{
 		if ((*stack_a)->index > (*stack_a)->next->index)
-			swap_a(stack_a);
+			swap_a(stack_a, 1);
 	}
 	else if (size == 3)
 		sort_tree(stack_a);

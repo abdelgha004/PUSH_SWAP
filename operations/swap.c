@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 09:36:39 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/05 09:52:49 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/09 16:13:32 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,25 @@ void	swap_stack(t_list **stack)
 	*stack = second;
 }
 
-void	swap_a(t_list **stack_a)
+void	swap_a(t_list **stack_a, int print)
 {
 	if (!stack_a || !*stack_a || !(*stack_a)->next)
 		return ;
 	swap_stack(stack_a);
-	write(1, "sa\n", 3);
+	if (print)
+		write(1, "sa\n", 3);
 }
 
-void	swap_b(t_list **stack_b)
+void	swap_b(t_list **stack_b, int print)
 {
 	if (!stack_b || !*stack_b || !(*stack_b)->next)
 		return ;
 	swap_stack(stack_b);
-	write(1, "sb\n", 3);
+	if (print)
+		write(1, "sb\n", 3);
 }
 
-void	swap_a_and_b(t_list **stack_a, t_list **stack_b)
+void	swap_a_and_b(t_list **stack_a, t_list **stack_b, int print)
 {
 	int	swapped;
 
@@ -55,6 +57,6 @@ void	swap_a_and_b(t_list **stack_a, t_list **stack_b)
 		swap_stack(stack_b);
 		swapped = 1;
 	}
-	if (swapped)
+	if (swapped && print)
 		write(1, "ss\n", 3);
 }

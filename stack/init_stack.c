@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 15:52:18 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/04 12:10:48 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/08 16:23:09 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ t_list	*create_stack(int argc, char **argv)
 	while (i < argc)
 	{
 		numbers = ft_split(argv[i], ' ');
-		if (!numbers)
-			return (ft_lstclear(&stack_a), NULL);
+		if (!numbers || !numbers[0])
+			return (handle_error(numbers, -1), ft_lstclear(&stack_a), NULL);
 		j = 0;
 		while (numbers[j])
 		{

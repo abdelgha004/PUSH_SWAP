@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 09:23:57 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/08 16:25:01 by aakourya         ###   ########.fr       */
+/*   Created: 2025/11/17 14:27:11 by aakourya          #+#    #+#             */
+/*   Updated: 2026/01/09 15:51:48 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	sort_stack(t_list **stack_a, t_list **stack_b, int size)
-{
-	if (is_sorted(*stack_a))
-		return ;
-	if (size <= 5)
-		sort_small_stack(stack_a, stack_b, size);
-	else if (size <= 100)
-		sort_medium_stack(stack_a, stack_b, size);
-	else
-		sort_large_stack(stack_a, stack_b, size);
-	return ;
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 20
+# endif
+
+# include <stdlib.h>
+# include <unistd.h>
+
+char	*get_next_line(int fd);
+
+char	*ft_strdup(const char *s);
+char	*ft_gnl_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char *s1, char *s2);
+
+#endif
