@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:59:48 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/09 16:36:49 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/09 16:45:31 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	sort_medium_stack(t_list **stack_a, t_list **stack_b, int size)
 	chunk_size = size / 5;
 	chunk_limit = chunk_size;
 	pushed = 0;
-	while (*stack_a && pushed < size)
+	while (*stack_a)
 	{
 		if ((*stack_a)->index < chunk_limit)
 		{

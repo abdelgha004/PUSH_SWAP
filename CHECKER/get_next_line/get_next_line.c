@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:25 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/09 16:21:29 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/11 16:24:14 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static char	*update_saved(char *saved, char **line)
 	i = 0;
 	while (saved[i] && saved[i] != '\n')
 		i++;
-	if (!saved[i])
+	if (!saved[i] || !saved[i + 1])
 		return (free(saved), NULL);
 	new_saved = ft_strdup(saved + (i + 1));
 	if (!new_saved)

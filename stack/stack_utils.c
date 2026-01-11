@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 09:12:04 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/04 12:08:34 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/11 16:46:41 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int	is_valid_number(char *str)
 	int		i;
 
 	i = 0;
+	if (!str || !*str)
+		return (0);
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (!ft_isdigit(str[i]))
