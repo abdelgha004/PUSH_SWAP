@@ -4,28 +4,22 @@
 
 ## Description
 
-**push_swap** is a sorting algorithm project from the 42 curriculum that challenges you to sort a list of integers using only **two stacks** and a **limited set of operations**. The primary goal is not merely to sort the numbers, but to do so **efficiently**—minimizing the total number of moves required.
+**push_swap** is a sorting algorithm project from the 42 curriculum.
+The goal is to sort a list of integers in ascending order using **two stacks** and a **limited set of operations**, while keeping the number of operations as low as possible.
 
-### Project Goal
+At the start:
 
-The project enforces strict constraints:
-- **Stack A** initially contains all unique integers to be sorted in ascending order
-- **Stack B** starts empty and serves as a temporary workspace
-- Only a predefined set of stack operations are allowed
-- The challenge is to sort Stack A using the **fewest possible instructions**
+* **Stack A** contains all the numbers to sort
+* **Stack B** is empty
+* Only specific stack operations are allowed
 
-This project reinforces understanding of:
-- Stack data structures and linked lists
-- Algorithm design under constraints
-- Optimization techniques (greedy algorithms, chunking strategies)
-- Complexity analysis and efficiency
-- Memory management in C
+The difficulty of the project is not sorting itself, but **choosing the right operations efficiently**.
 
 ---
 
 ## Allowed Operations
 
-The following operations are available for stack manipulation:
+The following operations can be used:
 
 | Operation | Description |
 |-----------|-------------|
@@ -40,114 +34,57 @@ The following operations are available for stack manipulation:
 | **rra** | Reverse rotate stack A (last element becomes first) |
 | **rrb** | Reverse rotate stack B (last element becomes first) |
 | **rrr** | Reverse rotate both stacks simultaneously |
-
----
-
-## Project Structure
-
-```
-push_swap/
-├── main.c                    # Main entry point
-├── push_swap.h               # Header file with function prototypes
-├── Makefile                  # Build configuration
-├── operations/               # Stack operation implementations
-│   ├── push.c
-│   ├── swap.c
-│   ├── rotate.c
-│   └── rev_rotate.c
-├── sort/                     # Sorting algorithms
-│   ├── sort.c               # Main sorting dispatcher
-│   ├── sort_small.c         # Optimized sort for 3-5 elements
-│   ├── sort_medium.c        # Sort for 6-100 elements
-│   ├── sort_large.c         # Efficient sort for 100+ elements
-│   └── sort_helpers.c       # Helper functions for sorting
-├── stack/                    # Stack initialization and utilities
-│   ├── init_stack.c
-│   └── stack_utils.c
-├── utils/                    # Utility functions
-│   ├── ft_atol.c
-│   ├── ft_split.c
-│   ├── ft_substr.c
-│   ├── ft_lstadd_back.c
-│   ├── ft_lstnew.c
-│   ├── ft_lstclear.c
-│   └── helpers.c
-├── CHECKER/                  # Bonus: Checker program to verify sorting
-│   ├── checker.c
-│   ├── checker_utils.c
-│   └── get_next_line/        # Utilities for reading input
-└── README.md                 # This file
-```
-
 ---
 
 ## Instructions
 
 ### Compilation
 
-**Main Program:**
+Compile the main program:
+
 ```bash
 make
 ```
 
-This compiles the `push_swap` executable. The program will read a list of integers and output the necessary operations to sort them.
+Compile the bonus checker:
 
-**Bonus - Checker Program:**
 ```bash
 make bonus
 ```
 
-This compiles the `checker` program, which verifies whether a sequence of operations correctly sorts the provided numbers.
-
 ### Execution
 
-**push_swap:**
-```bash
-./push_swap [number1] [number2] [number3] ...
-```
+Run `push_swap` with numbers as arguments:
 
-Example:
 ```bash
 ./push_swap 4 2 7 1 3
 ```
 
-The program outputs each operation on a separate line, which represents the steps to sort the stack.
+Or as a single string:
 
-**checker (bonus):**
 ```bash
-./checker [number1] [number2] [number3] ...
+./push_swap "4 2 7 1 3"
 ```
 
-Then provide a list of operations (one per line). End input with `Ctrl+D`. The checker will verify if the operations correctly sort the stack and output "OK" or "KO".
+The program prints the operations needed to sort the stack.
 
-Example:
+### Checker (Bonus)
+
+To verify the result:
+
 ```bash
-./checker 4 2 7 1 3
-pb
-pb
-pb
-ra
-pa
-pa
-pa
-Ctrl+D
+./push_swap 4 2 7 1 3 | ./checker 4 2 7 1 3
 ```
 
-### Input Validation
+* `OK` → stack is sorted correctly
+* `KO` → stack is not sorted
 
-- All arguments must be valid integers (within `int` range)
-- Duplicate numbers are **not allowed**
-- Numbers can be provided as separate arguments or within a quoted string
-- Error handling for invalid input: the program exits with no output for invalid input
+### Input Rules
 
-### Cleanup
-
-Remove compiled objects and executables:
-```bash
-make clean      # Remove object files
-make fclean     # Remove object files and executables
-make re         # Rebuild everything
-```
+* Only valid integers are accepted
+* No duplicates
+* Values must fit in `int` range
+* Invalid input stops the program and prints `Error`
 
 ---
 
@@ -156,70 +93,36 @@ make re         # Rebuild everything
 The project uses a **chunking and rotation strategy** optimized for different input sizes:
 
 1. **Small Stacks (≤5 elements):** Direct hardcoded optimal sorts
-2. **Medium Stacks (6-100 elements):** Chunking strategy with push-back optimization
-3. **Large Stacks (100+ elements):** Advanced chunking with efficient rotation and indexing
+2. **Medium Stacks (6-100 elements):** Fixed block chunk strategy with push-back optimization
+3. **Large Stacks (100+ elements):** Incremental/sliding chunk strategy with efficient rotation and index-based sorting
 
 The algorithm prioritizes **minimizing operation count** by:
-- Grouping numbers into chunks
-- Strategically rotating stacks to reduce push/pop operations
-- Using index-based sorting to reduce complexity
 
----
-
-## Key Features
-
-- **Efficient sorting** for various input sizes
-- **Memory-safe** C implementation with proper linked list management
-- **Comprehensive error handling** for invalid input
-- **Bonus checker program** to verify sorting correctness
-- **Makefile-based compilation** for easy building
-- **Modular design** with separated concerns (operations, sorting, utilities)
+* Grouping numbers into chunks
+* Strategically rotating stacks to reduce push/pop operations
+* Using index-based sorting to reduce complexity
 
 ---
 
 ## Resources
 
-### Official References
-- [42 School](https://42.fr/) - The 42 curriculum
-- [C Standard Library Documentation](https://en.cppreference.com/w/c) - Reference for C functions
-- [Stack Data Structure](https://www.geeksforgeeks.org/stack-data-structure/) - General concepts
-- [Sorting Algorithms Overview](https://www.geeksforgeeks.org/sorting-algorithms/) - Algorithm concepts
+### References
 
-### Helpful Tutorials
-- [Linked Lists in C](https://www.geeksforgeeks.org/data-structures/linked-list/) - Implementation guide
-- [Algorithm Optimization](https://www.khanacademy.org/computing/computer-science/algorithms/) - General algorithm concepts
-- [Memory Management in C](https://www.geeksforgeeks.org/malloc-vs-calloc/) - Dynamic memory best practices
+* 42 Network — *push_swap* subject
+* Sorting algorithms overview:
+  [https://en.wikipedia.org/wiki/Sorting_algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm)
+* Stack data structure (GeeksforGeeks):
+  [https://www.geeksforgeeks.org/dsa/stack-data-structure/](https://www.geeksforgeeks.org/dsa/stack-data-structure/)
+* Push_swap visualizer:
+  [https://saadloukili.github.io/Push-Swap-Visualizer/](https://saadloukili.github.io/Push-Swap-Visualizer/)
+* Push_swap algorithm article:
+  [https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
 
-### Recommended Reading
-- [Introduction to Algorithms (CLRS)](https://mitpress.mit.edu/9780262033848/) - Classic algorithm reference
-- [The C Programming Language (K&R)](https://en.wikipedia.org/wiki/The_C_Programming_Language) - Definitive C guide
+### AI Usage
 
----
+AI tools (ChatGPT) were used only as a **learning and explanation aid**, mainly for:
 
-## AI Usage
-
-AI was used to assist with the following aspects of this project:
-
-### Tasks Where AI Was Used:
-1. **Code Review & Debugging** - Identifying logical errors and edge cases in sorting algorithms
-2. **Optimization Suggestions** - Recommending algorithmic improvements for large stacks
-3. **Function Implementation** - Assisting with utility function implementations (string parsing, linked list operations)
-4. **Documentation** - Writing code comments and explaining complex sections
-5. **Memory Management** - Guidance on preventing memory leaks and proper cleanup
-
-### Parts of the Project Assisted by AI:
-- **Operations module** - Verification and optimization of stack manipulation functions
-- **Sort module** - Strategy refinement for chunking and rotation algorithms
-- **Utils module** - Efficient implementations of helper functions (atol, split, substr, list operations)
-- **Error handling** - Comprehensive input validation and error reporting
-- **General architecture** - Project structure and modular organization recommendations
-
----
-
-## Contact & Support
-
-For questions or issues related to this project, refer to the 42 curriculum documentation or seek help from fellow students and mentors at 42.
-
----
-
-**Last Updated:** January 2026
+* Understand and clarify algorithm concepts (chunks, indexing)
+* Help organize ideas and explain the logic in a clear way
+* Assist in writing and structuring this README file
+* Suggest test cases and help verify the program behavior during testing

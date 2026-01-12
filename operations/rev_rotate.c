@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 09:36:52 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/09 16:11:16 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/12 09:57:12 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	reverse_rotate_stack(t_list **stack)
 
 	first = *stack;
 	before_last = *stack;
-	while (before_last->next->next)
+	while (before_last->next && before_last->next->next)
 		before_last = before_last->next;
 	last = before_last->next;
 	before_last->next = NULL;

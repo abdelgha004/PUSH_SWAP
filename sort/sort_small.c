@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 09:29:20 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/09 16:16:05 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:15:24 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,4 @@ void	sort_small_stack(t_list **stack_a, t_list **stack_b, int size)
 		sort_tree(stack_a);
 	else if (size <= 5)
 		sort_four_five(stack_a, stack_b, size);
-	return ;
 }
