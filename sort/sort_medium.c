@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:59:48 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/12 14:19:02 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/13 09:39:57 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ void	sort_medium_stack(t_list **stack_a, t_list **stack_b, int size)
 				rotate_b(stack_b, 1);
 		}
 		else if (get_pos_in_chunk(*stack_a, chunk_limit) <= (size / 2))
-            rotate_a(stack_a, 1);
+			rotate_a(stack_a, 1);
 		else
-            reverse_rotate_a(stack_a, 1);
+			reverse_rotate_a(stack_a, 1);
 		if (pushed == chunk_limit && chunk_limit < size)
 			chunk_limit += chunk_size;
 	}

@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 09:12:04 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/11 16:46:41 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/13 09:40:57 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	is_sorted(t_list *stack)
 {
 	while (stack && stack->next)
 	{
-		if (stack->index > stack->next->index)
+		if (stack->content > stack->next->content)
 			return (0);
 		stack = stack->next;
 	}
