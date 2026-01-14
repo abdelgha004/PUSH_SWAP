@@ -6,7 +6,7 @@
 /*   By: aakourya <aakourya@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 09:29:20 by aakourya          #+#    #+#             */
-/*   Updated: 2026/01/12 11:15:24 by aakourya         ###   ########.fr       */
+/*   Updated: 2026/01/14 14:36:54 by aakourya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ static void	sort_four_five(t_list **stack_a, t_list **stack_b, int size)
 			push_b(stack_b, stack_a, 1);
 			index++;
 		}
-		else if (position >= (size / 2))
-			reverse_rotate_a(stack_a, 1);
+		else if (position <= (size / 2))
+            rotate_a(stack_a, 1);
 		else
-			rotate_a(stack_a, 1);
+            reverse_rotate_a(stack_a, 1);
 	}
 	sort_tree(stack_a);
 	while (*stack_b)
